@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" IgnorableNamespaces="uap uap3 mp rescap">
+
+  <Identity
+    Name="cb20550c-e98f-47d7-94e1-51ed6b94fa87"
+    Publisher="CN=alexey.sidorov"
+    Version="1.0.0.0" />
+
+  <mp:PhoneIdentity PhoneProductId="cb20550c-e98f-47d7-94e1-51ed6b94fa87" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
+  <Properties>
+    <DisplayName>edge.echo.native.messaging.test</DisplayName>
+    <PublisherDisplayName>alexey.sidorov</PublisherDisplayName>
+    <Logo>Assets\icon_50.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.15063.0" MaxVersionTested="10.0.15063.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="EdgeEchoNativeMessaging.App">
+      <uap:VisualElements AppListEntry="none" DisplayName="edge.echo.native.messaging.test" Square150x150Logo="Assets\icon_150.png" Square44x44Logo="Assets\icon_44.png" Description="Test Edge echo native messaging" BackgroundColor="transparent">
+      </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.appService">
+          <uap:AppService Name="edge.echo.native.messaging.test" />
+        </uap:Extension>
+        <uap:Extension Category="windows.protocol">
+          <uap:Protocol Name="msghost1" />
+        </uap:Extension>
+        <uap3:Extension Category="windows.appExtension">
+          <uap3:AppExtension Name="com.microsoft.edge.extension" Id="EdgeExtension" PublicFolder="Extension" DisplayName="edge.echo.native.messaging.test">
+            <uap3:Properties>
+              <Capabilities>
+                <Capability Name="websiteContent" />
+                <Capability Name="websiteInfo" />
+                <Capability Name="browserStorage" />
+              </Capabilities>
+            </uap3:Properties>
+          </uap3:AppExtension>
+        </uap3:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>
